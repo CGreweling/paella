@@ -292,7 +292,7 @@ paella.addDataDelegate("cameraTrack",() => {
                 this._trackData = _allTrackData.Person.positions;
               }
               else if(zoomObject == "Blackboard") {
-                this._trackData = _trackData.Blackboard.positions;
+                this._trackData = _allTrackData.Blackboard.positions;
               }
               g_track4kPlugin.enabled = ! g_track4kPlugin.enabled;
               if (g_track4kPlugin.updateTrackingStatus) g_track4kPlugin.updateTrackingStatus();
