@@ -289,10 +289,10 @@ paella.addDataDelegate("cameraTrack",() => {
 
             zoomAuto(zoomObject) {
               if(zoomObject == "Person") {
-                this._trackData = _allTrackData.Person.positions;
+                this._trackData = this._allTrackData.Person.positions;
               }
               else if(zoomObject == "Blackboard") {
-                this._trackData = _allTrackData.Blackboard.positions;
+                this._trackData = this._allTrackData.Blackboard.positions;
               }
               g_track4kPlugin.enabled = ! g_track4kPlugin.enabled;
               if (g_track4kPlugin.updateTrackingStatus) g_track4kPlugin.updateTrackingStatus();
