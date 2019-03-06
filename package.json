@@ -5,7 +5,7 @@
   "license": "ECL-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/polimediaupv/paella.git"
+    "url": "https://github.com/cgreweling/paella.git"
   },
   "devDependencies": {
     "glob-all": "^3.1.0",
