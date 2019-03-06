@@ -13,7 +13,7 @@ paella.addDataDelegate("cameraTrack",() => {
                             }
                             catch(err) {}
                         }
-                        data.positions.sort((a,b) => {
+                        data.Blackboard.positions.sort((a,b) => {
                             return a.time-b.time;
                         });
                         onSuccess(data);
@@ -261,9 +261,13 @@ paella.addDataDelegate("cameraTrack",() => {
                     this.resetZoom();
                 }));
                 domElement.appendChild(getZoomButton('zoom-auto',(evt) => {
-                    this.zoomAuto();
+                    this.zoomAuto("Person");
                     paella.player.controls.hidePopUp(this.getName());
-                }, "auto"));
+                }, "Person"));
+                domElement.appendChild(getZoomButton('zoom-auto',(evt) => {
+                                    this.zoomAuto("Blackboard");
+                                    paella.player.controls.hidePopUp(this.getName());
+                                }, "Blackboard"));
             }
 
             zoomIn() {
@@ -282,7 +286,13 @@ paella.addDataDelegate("cameraTrack",() => {
               if (g_track4kPlugin.updateTrackingStatus) g_track4kPlugin.updateTrackingStatus();
             }
 
-            zoomAuto() {
+            zoomAuto(zoomObject) {
+              if(zoomObject == "Person") {
+                this._trackData = data.Person.positions;
+              }
+              else if(zoomObject == "Blackboard") {
+                this._trackData = data.Blackboard.positions;
+              }
               g_track4kPlugin.enabled = ! g_track4kPlugin.enabled;
               if (g_track4kPlugin.updateTrackingStatus) g_track4kPlugin.updateTrackingStatus();
             }
