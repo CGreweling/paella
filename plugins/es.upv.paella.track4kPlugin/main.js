@@ -126,6 +126,7 @@ paella.addDataDelegate("cameraTrack",() => {
                         this._videoData.height = data.height;
                         this._videoData.originalWidth = data.originalWidth;
                         this._videoData.originalHeight = data.originalHeight;
+                        this._allTrackData = data;
                         this._trackData = data.positions;
                         this._enabled = true;
                     }
@@ -288,10 +289,10 @@ paella.addDataDelegate("cameraTrack",() => {
 
             zoomAuto(zoomObject) {
               if(zoomObject == "Person") {
-                this._trackData = data.Person.positions;
+                this._trackData = _allTrackData.Person.positions;
               }
               else if(zoomObject == "Blackboard") {
-                this._trackData = data.Blackboard.positions;
+                this._trackData = _trackData.Blackboard.positions;
               }
               g_track4kPlugin.enabled = ! g_track4kPlugin.enabled;
               if (g_track4kPlugin.updateTrackingStatus) g_track4kPlugin.updateTrackingStatus();
