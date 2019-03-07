@@ -115,7 +115,7 @@ paella.addDataDelegate("cameraTrack",() => {
 
                 this._videoData = {};
                 this._trackData = [];
-                this._allTrackData = [];
+                this._allTrackData = {};
 
                 this._enabled = true;
             }
@@ -128,7 +128,7 @@ paella.addDataDelegate("cameraTrack",() => {
                         this._videoData.originalWidth = data.originalWidth;
                         this._videoData.originalHeight = data.originalHeight;
                         this._allTrackData = data;
-                        this._trackData = data.Person.positions;
+                        this._trackData = data.Blackboard.positions;
                         this._enabled = true;
                     }
                     else {
@@ -218,7 +218,7 @@ paella.addDataDelegate("cameraTrack",() => {
             setup() {
                 console.log(this.config)
                 if (this.config.autoModeByDefault) {
-                    this.zoomAuto()
+                    this.zoomAuto("Blackboard")
                 }
                 else {
                     this.resetZoom()
@@ -290,10 +290,10 @@ paella.addDataDelegate("cameraTrack",() => {
 
             zoomAuto(zoomObject) {
               if(zoomObject == "Person") {
-                this._trackData = this._allTrackData.Person.positions;
+                g_track4kPlugin._trackData = g_track4kPlugin._allTrackData.Person.positions;
               }
               else if(zoomObject == "Blackboard") {
-                this._trackData = this._allTrackData.Blackboard.positions;
+                g_track4kPlugin._trackData = g_track4kPlugin._allTrackData.Blackboard.positions;
               }
               g_track4kPlugin.enabled = ! g_track4kPlugin.enabled;
               if (g_track4kPlugin.updateTrackingStatus) g_track4kPlugin.updateTrackingStatus();
