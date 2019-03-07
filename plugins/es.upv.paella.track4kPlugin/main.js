@@ -115,6 +115,7 @@ paella.addDataDelegate("cameraTrack",() => {
 
                 this._videoData = {};
                 this._trackData = [];
+                this._allTrackData = [];
 
                 this._enabled = true;
             }
@@ -127,7 +128,7 @@ paella.addDataDelegate("cameraTrack",() => {
                         this._videoData.originalWidth = data.originalWidth;
                         this._videoData.originalHeight = data.originalHeight;
                         this._allTrackData = data;
-                        this._trackData = data.positions;
+                        this._trackData = data.Person.positions;
                         this._enabled = true;
                     }
                     else {
